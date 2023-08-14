@@ -1,6 +1,8 @@
 package ifpr.pgua.eic.colecaomusicas;
 
+import ifpr.pgua.eic.colecaomusicas.controllers.CadastroGenero;
 import ifpr.pgua.eic.colecaomusicas.controllers.Principal;
+import ifpr.pgua.eic.colecaomusicas.models.Repositorio;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
 import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
 
@@ -9,7 +11,7 @@ import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
  */
 public class App extends BaseAppNavigator {
 
-    
+    private Repositorio repositorio = new Repositorio();
 
     public static void main(String[] args) {
         launch();
@@ -31,6 +33,12 @@ public class App extends BaseAppNavigator {
     @Override
     public void registrarTelas() {
         registraTela("PRINCIPAL", new ScreenRegistryFXML(App.class, "principal.fxml", o->new Principal()));
+        registraTela("CADASTROGENERO",
+                  new ScreenRegistryFXML(App.class, 
+                      "cadastrar_genero.fxml", 
+                      o->new CadastroGenero(repositorio)
+                  )
+        );
     }
 
 }
