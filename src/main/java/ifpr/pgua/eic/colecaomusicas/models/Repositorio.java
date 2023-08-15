@@ -13,11 +13,14 @@ public class Repositorio {
     }
 
     public String cadastrarGenero(String nome){
-        Genero genero = new Genero(nome);
+        
+            Genero genero = new Genero(nome);
 
-        generos.add(genero);
+            generos.add(genero);
 
-        return "Genero cadastrado!";
+            return "Genero cadastrado!";
+        
+        
     }
 
     public String cadastrarArtista(String nome, String contato){
