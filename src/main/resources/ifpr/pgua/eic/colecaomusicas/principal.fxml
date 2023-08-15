@@ -24,8 +24,11 @@
             <padding>
                 <Insets topRightBottomLeft="20"/>
             </padding>
-            <Button text="Cadastrar Genêro" onAction="#cadastrarGenero"  prefWidth="200"/>
-            <Button text="Listar" prefWidth="200"/>
+            <Button text="Cadastrar Gênero" onAction="#cadastrarGenero"  prefWidth="200"/>
+            <Button text="Listar Gêneros" prefWidth="200"/>
+            <Button text="Cadastrar Artista" onAction="#cadastrarArtista"  prefWidth="200"/>
+            <Button text="Listar Artistas" prefWidth="200"/>
+
         </VBox>
     </left>
 

@@ -10,4 +10,10 @@ public class Principal {
     private void cadastrarGenero(){
         App.pushScreen("CADASTROGENERO");
     }
+
+    @FXML
+    private void cadastrarArtista(){
+        App.pushScreen("CADASTROARTISTA");
+    }
+
 }

@@ -1,5 +1,6 @@
 package ifpr.pgua.eic.colecaomusicas;
 
+import ifpr.pgua.eic.colecaomusicas.controllers.CadastroArtista;
 import ifpr.pgua.eic.colecaomusicas.controllers.CadastroGenero;
 import ifpr.pgua.eic.colecaomusicas.controllers.Principal;
 import ifpr.pgua.eic.colecaomusicas.models.Repositorio;
@@ -37,6 +38,12 @@ public class App extends BaseAppNavigator {
                   new ScreenRegistryFXML(App.class, 
                       "cadastrar_genero.fxml", 
                       o->new CadastroGenero(repositorio)
+                  )
+        );
+        registraTela("CADASTROARTISTA",
+                  new ScreenRegistryFXML(App.class, 
+                      "cadastrar_artista.fxml", 
+                      o->new CadastroArtista(repositorio)
                   )
         );
     }
