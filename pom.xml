@@ -38,13 +38,7 @@
 			<version>8.0.30</version>
 		</dependency> 
 
-        <!--Dependência para rodar uma instância do mysql dentro do
-            projeto !-->
-        <dependency>
-            <groupId>ch.vorburger.mariaDB4j</groupId>
-            <artifactId>mariaDB4j</artifactId>
-            <version>2.4.0</version>
-          </dependency>
+
     </dependencies>
     <build>
         <plugins>
