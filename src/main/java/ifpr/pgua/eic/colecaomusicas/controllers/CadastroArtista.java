@@ -1,7 +1,8 @@
 package ifpr.pgua.eic.colecaomusicas.controllers;
 
 import ifpr.pgua.eic.colecaomusicas.App;
-import ifpr.pgua.eic.colecaomusicas.models.Repositorio;
+import ifpr.pgua.eic.colecaomusicas.repositories.RepositorioArtistas;
+import ifpr.pgua.eic.colecaomusicas.repositories.RepositorioGeneros;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,9 +17,9 @@ public class CadastroArtista {
     @FXML
     private TextField tfNome;
 
-    private Repositorio repositorio;
+    private RepositorioArtistas repositorio;
 
-    public CadastroArtista(Repositorio repositorio){
+    public CadastroArtista(RepositorioArtistas repositorio){
         this.repositorio = repositorio;
     }
 
