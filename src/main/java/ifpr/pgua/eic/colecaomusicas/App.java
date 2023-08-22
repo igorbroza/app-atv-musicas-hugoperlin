@@ -4,6 +4,7 @@ import ifpr.pgua.eic.colecaomusicas.controllers.CadastroArtista;
 import ifpr.pgua.eic.colecaomusicas.controllers.CadastroGenero;
 import ifpr.pgua.eic.colecaomusicas.controllers.ListarGeneros;
 import ifpr.pgua.eic.colecaomusicas.controllers.Principal;
+import ifpr.pgua.eic.colecaomusicas.models.FabricaConexoes;
 import ifpr.pgua.eic.colecaomusicas.models.Repositorio;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
 import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
@@ -13,7 +14,7 @@ import io.github.hugoperlin.navigatorfx.ScreenRegistryFXML;
  */
 public class App extends BaseAppNavigator {
 
-    private Repositorio repositorio = new Repositorio();
+    private Repositorio repositorio = new Repositorio(FabricaConexoes.getInstance());
 
     public static void main(String[] args) {
         launch();

@@ -22,6 +22,11 @@
             <version>1.0.1</version>
         </dependency>
         <dependency>
+            <groupId>com.github.hugoperlin</groupId>
+            <artifactId>results</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>13</version>
@@ -38,6 +43,11 @@
 			<version>8.0.30</version>
 		</dependency> 
 
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>2.2.4</version>
+        </dependency>
 
     </dependencies>
     <build>

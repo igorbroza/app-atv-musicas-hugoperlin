@@ -13,9 +13,12 @@ public class Repositorio {
     private ArrayList<Genero> generos;
     private ArrayList<Artista> artistas;
 
-    public Repositorio(){
+    private FabricaConexoes fabrica;
+
+    public Repositorio(FabricaConexoes fabrica){
         generos = new ArrayList<>();
         artistas = new ArrayList<>();
+        this.fabrica = fabrica;
     }
 
     public String cadastrarGenero(String nome){
@@ -25,10 +28,9 @@ public class Repositorio {
         //Conectar no banco
         //String url = "jdbc:mysql://localhost/musicas"; //local
         try{
-            String url = "jdbc:mysql://wagnerweinert.com.br:3306/hugo";
-            String username = "hugo"; //local root
-            String password = "1234"; //local ""
-            Connection con = DriverManager.getConnection(url,username,password);
+            
+            Connection con = fabrica.getConnection();
+
             //Preparar o comando sql
             PreparedStatement pstm = con.
             prepareStatement("INSERT INTO generos(nome) VALUES (?)");
@@ -48,11 +50,8 @@ public class Repositorio {
 
     public List<Genero> listarGeneros(){
         try{
-            String url = "jdbc:mysql://wagnerweinert.com.br:3306/hugo";
-            String username = "hugo"; //local root
-            String password = "1234"; //local ""
-            Connection con = DriverManager.getConnection(url,username,password);
-            
+            Connection con = fabrica.getConnection();
+
             PreparedStatement pstm = con.prepareStatement("SELECT * FROM generos");
 
             ResultSet rs = pstm.executeQuery();
@@ -79,11 +78,8 @@ public class Repositorio {
 
     public String cadastrarArtista(String nome, String contato){
         try{
-            String url = "jdbc:mysql://wagnerweinert.com.br:3306/hugo";
-            String username = "hugo"; //local root
-            String password = "1234"; //local ""
-            Connection con = DriverManager.getConnection(url,username,password);
-            //Preparar o comando sql
+            Connection con = fabrica.getConnection();
+//Preparar o comando sql
             PreparedStatement pstm = con.
             prepareStatement("INSERT INTO artistas(nome,contato) VALUES (?,?)");
             //Ajustar os parâmetros
