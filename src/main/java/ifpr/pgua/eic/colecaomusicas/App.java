@@ -2,6 +2,7 @@ package ifpr.pgua.eic.colecaomusicas;
 
 import ifpr.pgua.eic.colecaomusicas.controllers.CadastroArtista;
 import ifpr.pgua.eic.colecaomusicas.controllers.CadastroGenero;
+import ifpr.pgua.eic.colecaomusicas.controllers.ListarGeneros;
 import ifpr.pgua.eic.colecaomusicas.controllers.Principal;
 import ifpr.pgua.eic.colecaomusicas.models.Repositorio;
 import io.github.hugoperlin.navigatorfx.BaseAppNavigator;
@@ -38,6 +39,12 @@ public class App extends BaseAppNavigator {
                   new ScreenRegistryFXML(App.class, 
                       "cadastrar_genero.fxml", 
                       o->new CadastroGenero(repositorio)
+                  )
+        );
+        registraTela("LISTARGENEROS",
+                  new ScreenRegistryFXML(App.class, 
+                      "listar_generos.fxml", 
+                      o->new ListarGeneros(repositorio)
                   )
         );
         registraTela("CADASTROARTISTA",

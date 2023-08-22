@@ -16,4 +16,9 @@ public class Principal {
         App.pushScreen("CADASTROARTISTA");
     }
 
+    @FXML
+    private void listarGeneros(){
+        App.pushScreen("LISTARGENEROS");
+    }
+
 }
