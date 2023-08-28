@@ -6,7 +6,13 @@ public class Artista {
     private String nome;
     private String contato;
 
-    public Artista(String nome, String contato) {
+    public Artista(int id,String nome, String contato) {
+        this.id = id;
+        this.nome = nome;
+        this.contato = contato;
+    }
+
+    public Artista(String nome, String contato){
         this.nome = nome;
         this.contato = contato;
     }

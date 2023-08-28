@@ -4,41 +4,36 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
+import com.github.hugoperlin.results.Resultado;
+
+import ifpr.pgua.eic.colecaomusicas.daos.ArtistaDAO;
 import ifpr.pgua.eic.colecaomusicas.models.Artista;
 import ifpr.pgua.eic.colecaomusicas.models.FabricaConexoes;
 
 public class RepositorioArtistas {
     
-    private ArrayList<Artista> artistas;
+    private ArtistaDAO dao;
 
-    private FabricaConexoes fabrica;
-
-    public RepositorioArtistas(FabricaConexoes fabrica){
-        artistas = new ArrayList<>();
-        this.fabrica = fabrica;
+    public RepositorioArtistas(ArtistaDAO dao){
+        new ArrayList<>();
+        this.dao = dao;
     }
 
     public String cadastrarArtista(String nome, String contato){
-        try{
-            Connection con = fabrica.getConnection();
-            //Preparar o comando sql
-            PreparedStatement pstm = con.
-            prepareStatement("INSERT INTO artistas(nome,contato) VALUES (?,?)");
-            //Ajustar os parâmetros
-            pstm.setString(1,nome);
-            pstm.setString(2, contato);
-            //Executar o comando
-            int ret = pstm.executeUpdate();
+        Artista artista = new Artista(nome, contato);
+        Resultado resultado = dao.criar(artista);
+        return resultado.getMsg();
+    }
 
-            con.close();
-            if(ret == 1){
-                return "Artista cadastrado!";
-            }
-            return "Deu ruim!!";
-        }catch(SQLException e){
-            return e.getMessage();
+    public List<Artista> listarArtistas(){
+        Resultado resultado = dao.listar();
+
+        if(resultado.foiSucesso()){
+            return (ArrayList)resultado.comoSucesso().getObj();
         }
+        return null;
     }
 
 }
